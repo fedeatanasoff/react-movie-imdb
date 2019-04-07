@@ -1,11 +1,13 @@
 import React from "react";
+import styled from "styled-components";
+
+const Inicio = styled.div`
+  background: darkred;
+  color: #fff;
+`;
 
 const Destacados = () => {
-  return (
-    <div>
-      <h2>destacados</h2>
-    </div>
-  );
+  return <Inicio>Destacados</Inicio>;
 };
 
 export default Destacados;

@@ -9,7 +9,8 @@ const Contenedor = styled.div`
     background: #141414;
     margin: 0;
     padding: 0;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     display: flex;
     align-items: strech;
     /* justify-content: center; */

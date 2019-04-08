@@ -1,3 +1,7 @@
+## React movie TMDB
+
+SPA con React.js consumiendo datos de la API de TMDB utilizando styled-components para los estilos
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

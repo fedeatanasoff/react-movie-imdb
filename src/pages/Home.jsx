@@ -6,7 +6,7 @@ import axios from "axios";
 class Home extends Component {
   state = {
     peliculas: [],
-    peliculaDestacada: {}
+    peliculaDestacada: ""
   };
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class Home extends Component {
 
   async getData() {
     let resultado = await axios.get(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=26fcc7f157d992f403ae4b6144eabf3&language=es-AR`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=a26fcc7f157d992f403ae4b6144eabf3&language=es-AR`
     );
 
     return resultado;
@@ -54,6 +54,7 @@ class Home extends Component {
 
   render() {
     const { peliculaDestacada, peliculas } = this.state;
+    console.log("estado =>", this.state);
     return (
       <div>
         <Destacados peliDestacada={peliculaDestacada} />

@@ -5,15 +5,25 @@ import axios from "axios";
 
 class Home extends Component {
   state = {
-    peliculas: []
+    peliculas: [],
+    peliculaDestacada: {}
   };
 
   componentDidMount() {
     if (this.state.peliculas.length === 0) {
       this.getData()
-        .then(data => this.setState({ peliculas: data.data.results }))
-        .catch(e => console.log("Error: ", e));
+        .then(data => {
+          this.setPeliDestacada(data.data.results);
+          this.setState({ peliculas: data.data.results });
+        })
+        .catch(e => console.error("Error: ", e));
     }
+  }
+
+  setPeliDestacada(peliculas) {
+    const peliDestacada =
+      peliculas[Math.floor(Math.random() * peliculas.length)];
+    this.setState({ peliculaDestacada: peliDestacada });
   }
 
   async getData() {
@@ -43,11 +53,11 @@ class Home extends Component {
   }
 
   render() {
-    console.log("estado desde el render =>", this.state.peliculas);
+    const { peliculaDestacada, peliculas } = this.state;
     return (
       <div>
-        <Destacados />
-        <Estrenos peliculas={this.state.peliculas} />
+        <Destacados peliDestacada={peliculaDestacada} />
+        <Estrenos peliculas={peliculas} />
       </div>
     );
   }

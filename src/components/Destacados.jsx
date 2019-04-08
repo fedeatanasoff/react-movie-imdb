@@ -6,8 +6,9 @@ const Inicio = styled.div`
   color: #fff;
 `;
 
-const Destacados = () => {
-  return <Inicio>Destacados</Inicio>;
+const Destacados = props => {
+  console.log(props);
+  return <Inicio>{props.peliDestacada.title}</Inicio>;
 };
 
 export default Destacados;
